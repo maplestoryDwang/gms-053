@@ -10,6 +10,7 @@
 2. mysql5.5
 3. IDEA启动
 4. 启动参数参考``bat``
+5. 客户端窗口解锁：https://github.com/Riremito/MapleStoryWindowMode
 
 # 准备事项
 1. 导入sql文件夹下的sql到数据库

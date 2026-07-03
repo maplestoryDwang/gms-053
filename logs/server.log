@@ -1,0 +1,133 @@
+2026-07-03 13:54:44.477 [main] INFO  net.sf.odinms.net.world.WorldServer - world server launch success
+2026-07-03 13:55:23.681 [main] ERROR net.sf.odinms.net.login.LoginServer - Error initializing loginserver
+java.lang.RuntimeException: Could not connect to world server.
+	at net.sf.odinms.net.login.LoginServer.run(LoginServer.java:184)
+	at net.sf.odinms.net.login.LoginServer.main(LoginServer.java:239)
+Caused by: java.rmi.ConnectIOException: error during JRMP connection establishment; nested exception is: 
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:304)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+	at net.sf.odinms.net.login.LoginServer.run(LoginServer.java:176)
+	... 1 common frames omitted
+Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.SSLSocketImpl.fatal(SSLSocketImpl.java:1904)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:279)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:273)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1446)
+	at sun.security.ssl.ClientHandshaker.processMessage(ClientHandshaker.java:209)
+	at sun.security.ssl.Handshaker.processLoop(Handshaker.java:913)
+	at sun.security.ssl.Handshaker.process_record(Handshaker.java:849)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1023)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1332)
+	at sun.security.ssl.SSLSocketImpl.writeRecord(SSLSocketImpl.java:709)
+	at sun.security.ssl.AppOutputStream.write(AppOutputStream.java:122)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at java.io.DataOutputStream.flush(DataOutputStream.java:123)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:229)
+	... 5 common frames omitted
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:385)
+	at sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:292)
+	at sun.security.validator.Validator.validate(Validator.java:260)
+	at sun.security.ssl.X509TrustManagerImpl.validate(X509TrustManagerImpl.java:326)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:126)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1428)
+	... 16 common frames omitted
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:196)
+	at java.security.cert.CertPathBuilder.build(CertPathBuilder.java:268)
+	at sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:380)
+	... 22 common frames omitted
+2026-07-03 13:56:25.612 [main] INFO  net.sf.odinms.net.login.LoginServer - Listening on port 8484
+2026-07-03 13:56:25.614 [main] INFO  net.sf.odinms.net.login.LoginServer - LoginServer  launch success
+2026-07-03 13:56:25.614 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:26.106 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:26.615 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:27.105 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:27.601 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:28.113 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:28.605 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:29.104 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:29.600 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:30.112 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:30.610 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:31.105 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:31.604 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:32.101 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:32.600 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:33.114 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:33.611 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:34.111 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:34.610 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:35.107 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:35.604 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:36.101 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:36.612 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:37.110 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:37.609 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:38.107 [Timermanager-Worker-1] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:38.605 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:39.103 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:39.601 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:40.111 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:40.613 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:41.112 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:41.607 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:42.106 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:42.602 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:43.101 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:43.600 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:44.113 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:44.613 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:45.111 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:45.609 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:46.104 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:46.601 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:47.115 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:47.612 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:48.111 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:48.608 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:49.101 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:49.615 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:50.106 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:50.604 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:51.105 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:51.602 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:52.100 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:52.613 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:53.111 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:53.610 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:54.110 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:54.604 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:55.101 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:55.613 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:56.113 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:56.609 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:57.102 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:57.601 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:58.107 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:56:58.608 [Timermanager-Worker-2] INFO  net.sf.odinms.net.login.LoginWorker - Possible logins: 500 (Waiting: 0)
+2026-07-03 13:57:04.302 [main] INFO  net.sf.odinms.net.login.LoginServer - Listening on port 8484
+2026-07-03 13:57:04.304 [main] INFO  net.sf.odinms.net.login.LoginServer - LoginServer  launch success
+2026-07-03 13:58:49.871 [main] INFO  n.s.odinms.net.channel.ChannelServer - Listening on port 17575
+2026-07-03 13:58:51.936 [RMI TCP Connection(7)-192.168.1.2] INFO  n.s.o.n.w.WorldChannelInterfaceImpl - Channel 1 is online.
+2026-07-03 14:06:26.224 [main] INFO  net.sf.odinms.DwangStart - 正在加载系统核心参数配置...
+2026-07-03 14:06:26.226 [main] INFO  net.sf.odinms.DwangStart - 参数加载完毕，开始串行引导各个子服务...
+2026-07-03 14:06:26.226 [main] INFO  net.sf.odinms.DwangStart -  [1/3] 正在本地进程中拉起 WorldServer...
+2026-07-03 14:06:26.588 [main] INFO  net.sf.odinms.net.world.WorldServer - world server launch success
+2026-07-03 14:06:28.602 [main] INFO  net.sf.odinms.DwangStart - =================================================
+2026-07-03 14:06:28.602 [ChannelServer-Thread] INFO  net.sf.odinms.DwangStart -  [3/3] 正在本地进程中拉起 ChannelServer 频道群...
+2026-07-03 14:06:28.602 [LoginServer-Thread] INFO  net.sf.odinms.DwangStart -  [2/3] 正在本地进程中拉起 LoginServer...
+2026-07-03 14:06:28.602 [main] INFO  net.sf.odinms.DwangStart -  OdinMS 整合版中央控制台已完全托管运行。
+2026-07-03 14:06:28.602 [main] INFO  net.sf.odinms.DwangStart - =================================================
+2026-07-03 14:06:28.820 [LoginServer-Thread] INFO  net.sf.odinms.net.login.LoginServer - Listening on port 8484
+2026-07-03 14:06:28.956 [ChannelServer-Thread] INFO  n.s.odinms.net.channel.ChannelServer - Listening on port 17575
+2026-07-03 14:06:28.958 [RMI TCP Connection(4)-192.168.1.2] INFO  n.s.o.n.w.WorldChannelInterfaceImpl - Channel 1 is online.
+2026-07-03 14:06:28.967 [ChannelServer-Thread] INFO  n.s.odinms.net.channel.ChannelServer - ChannelServer launch success
+2026-07-03 14:06:51.824 [pool-2-thread-1] INFO  net.sf.odinms.net.MapleServerHandler - IoSession with /127.0.0.1:9325 opened
+2026-07-03 14:14:00.525 [pool-2-thread-3] INFO  net.sf.odinms.net.MapleServerHandler - IoSession with /127.0.0.1:7486 opened

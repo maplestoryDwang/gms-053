@@ -22,10 +22,7 @@
 
 package net.sf.odinms.net.channel;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.lang.management.ManagementFactory;
 import java.net.InetSocketAddress;
 import java.rmi.NotBoundException;
@@ -39,6 +36,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.LogManager;
 
 import javax.management.InstanceAlreadyExistsException;
 import javax.management.MBeanRegistrationException;
@@ -387,6 +385,9 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
 		}
 		DatabaseConnection.getConnection(); // touch - so we see database problems early...
 		CommandProcessor.registerMBean();
+
+		log.info("ChannelServer launch success");
+
 	}
 
 	public EventScriptManager getEventSM() {

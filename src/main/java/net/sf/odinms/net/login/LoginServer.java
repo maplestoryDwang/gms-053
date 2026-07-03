@@ -235,7 +235,6 @@ public class LoginServer implements Runnable {
 
 	public static void main(String args[]) {
 		try {
-			System.setProperty("net.sf.odinms.login.config", "E:\\game\\ms\\gms053\\server\\gms-053\\login.properties");
 			LoginServer.getInstance().run();
 			log.info("LoginServer  launch success");
 
