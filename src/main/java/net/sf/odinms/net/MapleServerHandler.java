@@ -39,7 +39,12 @@ import org.apache.mina.util.SessionLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MapleServerHandler extends IoHandlerAdapter {
+
+	public static final Map<Short, RecvPacketOpcode> recvMap = new HashMap<>();
 	private final static Logger log = LoggerFactory.getLogger(MapleServerHandler.class);
 	private static short MAPLE_VERSION = 53;
 	private PacketProcessor processor;
@@ -141,8 +146,9 @@ public class MapleServerHandler extends IoHandlerAdapter {
 			if (packetHandler == null) {
 				log.info("Got unhandeled Message {} ({}) {}\n{}", new Object[] { from, content.length,
 					HexTool.toString(content), HexTool.toStringFromAscii(content) });
-			} else if (log.isTraceEnabled()) {
-				log.trace("Got Message {}handled by {} ({}) {}\n{}", new Object[] { from,
+			} else if (log.isTraceEnabled() && !RecvPacketOpcode.ignore(packetId)) {
+				RecvPacketOpcode recvPacketOpcode = recvMap.get(packetId);
+				log.trace("Got Message {} Opcode:{} handled by {} (len:{}) {}\n{}", new Object[] { from, recvPacketOpcode,
 					packetHandler.getClass().getSimpleName(), content.length, HexTool.toString(content),
 					HexTool.toStringFromAscii(content) });
 			}

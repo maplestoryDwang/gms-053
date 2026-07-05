@@ -79,6 +79,14 @@ public class DwangStart {
             }
         }, "LoginServer-Thread").start();
 
+        // 稳妥起见，静置 2 秒等待 WorldServer 的 RMI 注册表彻底创建完毕
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+
         // [步骤三] 异步启动 ChannelServer
         new Thread(new Runnable() {
             @Override

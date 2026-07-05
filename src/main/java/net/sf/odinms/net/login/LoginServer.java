@@ -206,6 +206,8 @@ public class LoginServer implements Runnable {
 			acceptor.bind(new InetSocketAddress(PORT), new MapleServerHandler(PacketProcessor
 				.getProcessor(PacketProcessor.Mode.LOGINSERVER)), cfg);
 			log.info("Listening on port {}", PORT);
+			log.info("LoginServer  launch success");
+
 		} catch (IOException e) {
 			log.error("Binding to port {} failed", PORT, e);
 		}
@@ -236,7 +238,6 @@ public class LoginServer implements Runnable {
 	public static void main(String args[]) {
 		try {
 			LoginServer.getInstance().run();
-			log.info("LoginServer  launch success");
 
 		} catch (Exception ex) {
 			log.error("Error initializing loginserver", ex);

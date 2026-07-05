@@ -56,6 +56,7 @@ import net.sf.odinms.net.channel.remote.ChannelWorldInterface;
 import net.sf.odinms.net.mina.MapleCodecFactory;
 import net.sf.odinms.net.world.remote.WorldChannelInterface;
 import net.sf.odinms.net.world.remote.WorldRegistry;
+import net.sf.odinms.provider.MapleDataProvider;
 import net.sf.odinms.provider.MapleDataProviderFactory;
 import net.sf.odinms.scripting.EventScriptManager;
 import net.sf.odinms.server.AutobanManager;

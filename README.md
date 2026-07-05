@@ -33,7 +33,7 @@ password = 123456
 启动参数：
 > -Dnet.sf.odinms.recvops=recvops.properties
 -Dnet.sf.odinms.sendops=sendops.properties
--Dnet.sf.odinms.wzpath=.
+-Dnet.sf.odinms.wzpath=./wz
 -Djavax.net.ssl.keyStore=world.keystore
 -Djavax.net.ssl.keyStorePassword=mysecretpassword
 -Djavax.net.ssl.trustStore=world.truststore
@@ -44,7 +44,7 @@ password = 123456
 
 > -Dnet.sf.odinms.recvops=recvops.properties
 -Dnet.sf.odinms.sendops=sendops.properties
--Dnet.sf.odinms.wzpath=.
+-Dnet.sf.odinms.wzpath=./wz
 -Dnet.sf.odinms.login.config=login.properties
 -Djavax.net.ssl.keyStore=login.keystore
 -Djavax.net.ssl.keyStorePassword=mysecretpassword

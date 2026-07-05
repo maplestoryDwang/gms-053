@@ -25,7 +25,7 @@ package net.sf.odinms.net;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Properties;
+import java.util.*;
 
 public enum RecvPacketOpcode implements WritableIntValueHolder {
 	// GENERIC
@@ -93,6 +93,12 @@ public enum RecvPacketOpcode implements WritableIntValueHolder {
 
 	private int code = -2;
 
+	private static List<Integer> ignoreLists;
+
+	public static boolean ignore(int packetId) {
+		return ignoreLists.contains(packetId);
+	}
+
 	public void setValue(int code) {
 		this.code = code;
 	}
@@ -113,6 +119,18 @@ public enum RecvPacketOpcode implements WritableIntValueHolder {
 	static {
 		try {
 			ExternalCodeTableGetter.populateValues(getDefaultProperties(), values());
+			for (RecvPacketOpcode value : values()) {
+				// load
+				MapleServerHandler.recvMap.put((short)value.getValue(), value);
+			}
+
+			ignoreLists = Arrays.asList(
+					PONG.getValue(),
+					FACE_EXPRESSION.getValue(),
+					MOVE_PLAYER.getValue(),
+					MOVE_LIFE.getValue()
+			);
+
 		} catch (IOException e) {
 			throw new RuntimeException("Failed to load recvops", e);
 		}

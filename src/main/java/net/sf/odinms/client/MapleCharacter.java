@@ -454,7 +454,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements In
 					.prepareStatement("INSERT INTO characters ("
 						+ "level, fame, str, dex, luk, `int`, exp, hp, mp, "
 						+ "maxhp, maxmp, sp, ap, gm, skincolor, gender, job, hair, face, map, meso, hpApUsed, mpApUsed, spawnpoint, party, buddyCapacity, accountid, name, world"
-						+ ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+						+ ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", java.sql.Statement.RETURN_GENERATED_KEYS);
 			}
 
 			ps.setInt(1, level);
@@ -526,7 +526,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements In
 			ps.executeUpdate();
 			ps.close();
 			ps = con.prepareStatement("INSERT INTO inventoryitems"
-				+ "(characterid, itemid, inventorytype, position, quantity, owner) " + "VALUES (?, ?, ?, ?, ?, ?)");
+				+ "(characterid, itemid, inventorytype, position, quantity, owner) " + "VALUES (?, ?, ?, ?, ?, ?)", java.sql.Statement.RETURN_GENERATED_KEYS);
 			PreparedStatement pse = con.prepareStatement("INSERT INTO inventoryequipment "
 				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			// PreparedStatement psl = con.prepareStatement("INSERT INTO inventorylog " +
