@@ -26,9 +26,15 @@ import java.io.ByteArrayOutputStream;
 
 import net.sf.odinms.net.ByteArrayMaplePacket;
 import net.sf.odinms.net.MaplePacket;
+import net.sf.odinms.net.MapleServerHandler;
+import net.sf.odinms.net.SendPacketOpcode;
 import net.sf.odinms.tools.HexTool;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MaplePacketLittleEndianWriter extends GenericLittleEndianWriter {
+	Logger logger = LoggerFactory.getLogger(MaplePacketLittleEndianWriter.class);
+
 	private ByteArrayOutputStream baos;
 
 	public MaplePacketLittleEndianWriter() {
@@ -41,7 +47,19 @@ public class MaplePacketLittleEndianWriter extends GenericLittleEndianWriter {
 	}
 	
 	public MaplePacket getPacket() {
-		return new ByteArrayMaplePacket(baos.toByteArray());
+		byte[] byteArray = baos.toByteArray();
+		if (byteArray.length >= 2) {
+			short packetHeader = (short) ((byteArray[0] & 0xFF) | ((byteArray[1] & 0xFF) << 8));
+			SendPacketOpcode sendPacketOpcode = MapleServerHandler.sendMap.get(packetHeader);
+
+			logger.trace("send Message  Opcode:{} (len:{}) {}\n{}", new Object[] {sendPacketOpcode,
+					 byteArray.length, HexTool.toString(byteArray),
+					HexTool.toStringFromAscii(byteArray) });
+		}
+
+
+
+		return new ByteArrayMaplePacket(byteArray);
 	}
 	
 	public String toString() {

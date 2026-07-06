@@ -149,6 +149,23 @@ public class MapleMapFactory {
 				map.setMapName(MapleDataTool.getString("mapName", nameData.getChildByPath(getMapStringName(omapid)), "MISSINGNO"));
 				map.setStreetName(MapleDataTool.getString("streetName", nameData.getChildByPath(getMapStringName(omapid)), "MISSINGNO"));
 
+
+
+				// todo 显示反应物
+				// 反应物出现
+//				if (mapData.getChildByPath("reactor") != null) {
+//					for (MapleData reactor : mapData.getChildByPath("reactor")) {
+//						String id = MapleDataTool.getString(reactor.getChildByPath("id"));
+//						if (id != null) {
+//							Reactor newReactor = loadReactor(reactor, id, (byte) DataTool.getInt(reactor.getChildByPath("f"), 0));
+//							map.spawnReactor(newReactor);
+//						}
+//					}
+//				}
+
+
+
+
 				maps.put(omapid, map);
 
 				if (channel > 0 && Boolean.parseBoolean(ChannelServer.getInstance(channel).getProperty("net.sf.odinms.world.faekchar"))) {

@@ -45,6 +45,7 @@ import java.util.Map;
 public class MapleServerHandler extends IoHandlerAdapter {
 
 	public static final Map<Short, RecvPacketOpcode> recvMap = new HashMap<>();
+	public static final Map<Short, SendPacketOpcode> sendMap = new HashMap<>();
 	private final static Logger log = LoggerFactory.getLogger(MapleServerHandler.class);
 	private static short MAPLE_VERSION = 53;
 	private PacketProcessor processor;
@@ -95,8 +96,15 @@ public class MapleServerHandler extends IoHandlerAdapter {
 			}
 		}
 		
-		byte key[] = { 0x13, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, (byte) 0xB4, 0x00, 0x00,
-			0x00, 0x1B, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x00, 0x33, 0x00, 0x00, 0x00, 0x52, 0x00, 0x00, 0x00 };
+		byte key[] = {
+				0x13, 0x00, 0x00, 0x00,
+				0x08, 0x00, 0x00, 0x00,
+				0x06, 0x00, 0x00, 0x00,
+		  (byte) 0xB4, 0x00, 0x00,0x00,
+				0x1B, 0x00, 0x00, 0x00,
+				0x0F, 0x00, 0x00, 0x00,
+				0x33, 0x00, 0x00, 0x00,
+				0x52, 0x00, 0x00, 0x00 };
 		byte ivRecv[] = { 70, 114, 122, 82 };
 		byte ivSend[] = { 82, 48, 120, 115 };
 
@@ -146,7 +154,7 @@ public class MapleServerHandler extends IoHandlerAdapter {
 			if (packetHandler == null) {
 				log.info("Got unhandeled Message {} ({}) {}\n{}", new Object[] { from, content.length,
 					HexTool.toString(content), HexTool.toStringFromAscii(content) });
-			} else if (log.isTraceEnabled() && !RecvPacketOpcode.ignore(packetId)) {
+			} else if (log.isTraceEnabled() ) {
 				RecvPacketOpcode recvPacketOpcode = recvMap.get(packetId);
 				log.trace("Got Message {} Opcode:{} handled by {} (len:{}) {}\n{}", new Object[] { from, recvPacketOpcode,
 					packetHandler.getClass().getSimpleName(), content.length, HexTool.toString(content),

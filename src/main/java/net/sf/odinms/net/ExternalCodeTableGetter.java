@@ -106,9 +106,9 @@ public class ExternalCodeTableGetter {
 		for (T code : values) {
 			code.setValue(exc.getValue(code.name(), values, -2));
 		}
-		Logger log = LoggerFactory.getLogger(ExternalCodeTableGetter.class);
+/*		Logger log = LoggerFactory.getLogger(ExternalCodeTableGetter.class);
 		if (log.isTraceEnabled()) { // generics - copy pasted between send and recv current?
 			log.trace(getOpcodeTable(values));
-		}
+		}*/
 	}
 }

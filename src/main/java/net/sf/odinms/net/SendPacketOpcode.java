@@ -111,6 +111,12 @@ public enum SendPacketOpcode implements WritableIntValueHolder {
 	DAMAGE_SUMMON,
 	DAMAGE_MONSTER,
 	BUDDYLIST,
+
+	REACTOR_HIT, // 反应堆被击中
+	REACTOR_SPAWN, // 生成反应堆
+	REACTOR_DESTROY, // 销毁反应堆
+
+
 	;
 
 	private int code = -2;
@@ -135,6 +141,10 @@ public enum SendPacketOpcode implements WritableIntValueHolder {
 	static {
 		try {
 			ExternalCodeTableGetter.populateValues(getDefaultProperties(), values());
+			for (SendPacketOpcode value : values()) {
+				// load
+				MapleServerHandler.sendMap.put((short)value.getValue(), value);
+			}
 		} catch (IOException e) {
 			throw new RuntimeException("Failed to load recvops", e);
 		}

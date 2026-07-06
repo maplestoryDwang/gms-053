@@ -37,6 +37,7 @@ public class NPCTalkHandler extends AbstractMaplePacketHandler {
 		if (npc.hasShop()) {
 			npc.sendShop(c);
 		} else {
+			System.out.println("开始脚本：" + npc.getId());
 			NPCScriptManager.getInstance().start(c, npc.getId());
 			// NPCMoreTalkHandler.npc = npc.getId();
 			// 0 = next button

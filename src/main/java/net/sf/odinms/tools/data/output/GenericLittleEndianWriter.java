@@ -22,6 +22,7 @@
 
 package net.sf.odinms.tools.data.output;
 
+import java.awt.*;
 import java.nio.charset.Charset;
 
 public class GenericLittleEndianWriter implements LittleEndianWriter {
@@ -54,6 +55,11 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
 
 	@Override
 	public void write(int b) {
+		bos.writeByte((byte) b);
+	}
+
+	@Override
+	public void writeByte(int b) {
 		bos.writeByte((byte) b);
 	}
 
@@ -98,5 +104,11 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
 		bos.writeByte((byte) ((l >>> 40) & 0xFF));
 		bos.writeByte((byte) ((l >>> 48) & 0xFF));
 		bos.writeByte((byte) ((l >>> 56) & 0xFF));
+	}
+
+	@Override
+	public void writePos(Point value) {
+		writeShort((short) value.getX());
+		writeShort((short) value.getY());
 	}
 }

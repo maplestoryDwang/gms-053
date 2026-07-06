@@ -63,6 +63,7 @@ import net.sf.odinms.server.life.MapleNPC;
 import net.sf.odinms.server.life.SpawnPoint;
 import net.sf.odinms.tools.MaplePacketCreator;
 
+import net.sf.odinms.tools.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -211,6 +212,14 @@ public class MapleMap {
 		return ret;
 	}
 
+	/**
+	 * 核心怪物掉落方法！
+	 *
+	 *
+	 *
+	 * @param dropOwner
+	 * @param monster
+	 */
 	private void dropFromMonster(MapleCharacter dropOwner, MapleMonster monster) {
 		if (dropsDisabled)
 			return;
@@ -950,7 +959,45 @@ public class MapleMap {
 		this.streetName = streetName;
 	}
 
-	private class ExpireMapItemJob implements Runnable {
+/*
+    public void searchItemReactors(Reactor react) {
+		if (react.getReactorType() == 100) {
+			Pair<Integer, Integer> reactProp = react.getReactItem(react.getEventState());
+			int reactItem = reactProp.getLeft(), reactQty = reactProp.getRight();
+			Rectangle reactArea = react.getArea();
+
+			List<MapleMapItem> list;
+			objectRLock.lock();
+			try {
+				list = new ArrayList<>(droppedItems.keySet());
+			} finally {
+				objectRLock.unlock();
+			}
+
+			for (final MapleMapItem drop : list) {
+				drop.lockItem();
+				try {
+					if (!drop.isPickedUp()) {
+						final IItem item = drop.getItem();
+
+						if (item != null && reactItem == item.getItemId() && reactQty == item.getQuantity()) {
+							if (reactArea.contains(drop.getPosition())) {
+								Client owner = drop.getOwnerClient();
+								if (owner != null) {
+									registerMapSchedule(new ActivateItemReactor(drop, react, owner), 5000);
+								}
+							}
+						}
+					}
+				} finally {
+					drop.unlockItem();
+				}
+			}
+		}
+    }
+*/
+
+    private class ExpireMapItemJob implements Runnable {
 		private MapleMapItem mapitem;
 
 		public ExpireMapItemJob(MapleMapItem mapitem) {

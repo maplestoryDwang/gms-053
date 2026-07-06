@@ -22,13 +22,20 @@
 
 package net.sf.odinms.tools.data.output;
 
+import java.awt.*;
+
 public interface LittleEndianWriter {
 	public void write (byte b[]);
 	public void write (byte b);
 	public void write (int b);
+	void writeByte(int value);
+
 	public void writeInt (int i);
 	public void writeShort (int s);
 	public void writeLong(long l);
+	void writePos(Point value);
+
+
 	
 	void writeAsciiString(String s);
 	void writeNullTerminatedAsciiString(String s);

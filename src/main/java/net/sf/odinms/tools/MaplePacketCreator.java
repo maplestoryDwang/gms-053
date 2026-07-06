@@ -302,7 +302,7 @@ public class MaplePacketCreator {
 		mplew.writeInt(0);
 		mplew.writeInt(0);
 
-		mplew.write(chr.getLevel()); // level
+		mplew.write(chr.getLevel()); // level 最高等级128
 		mplew.writeShort(chr.getJob().getId()); // job
 		// mplew.writeShort(422);
 		mplew.writeShort(chr.getStr()); // str
@@ -413,6 +413,8 @@ public class MaplePacketCreator {
 
 		mplew.write(0x14); //???
 		mplew.writeInt(chr.getMeso()); // mesos
+
+		// start inventoryInfo
 		mplew.write(100); // equip slots
 		mplew.write(100); // use slots
 		mplew.write(100); // set-up slots
@@ -456,6 +458,7 @@ public class MaplePacketCreator {
 		for (IItem item : iv.list()) {
 			addItemInfo(mplew, item);
 		}
+
 		mplew.write(0); // start of skills
 
 		Map<ISkill, MapleCharacter.SkillEntry> skills = chr.getSkills();
@@ -468,7 +471,7 @@ public class MaplePacketCreator {
 			}
 		}
 
-		mplew.writeShort(0);
+		mplew.writeShort(0); // start quest info
 		addQuestInfo(mplew, chr);
 
 		mplew.write(new byte[8]);
@@ -820,7 +823,7 @@ public class MaplePacketCreator {
 			mplew.writeShort(SendPacketOpcode.SPAWN_MONSTER_CONTROL.getValue());
 			// mplew.writeShort(0xA0); // 47 9e
 			if (aggro) {
-				mplew.write(2);
+				mplew.write(2);   //可攻击是2
 			} else {
 				mplew.write(1);
 			}
@@ -831,6 +834,8 @@ public class MaplePacketCreator {
 		mplew.writeInt(life.getObjectId());
 		mplew.write(5); // ????!? either 5 or 1?
 		mplew.writeInt(life.getId());
+
+
 		mplew.writeInt(0); // if nonnull client crashes (?)
 
 		mplew.writeShort(life.getPosition().x);

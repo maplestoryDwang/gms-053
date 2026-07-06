@@ -40,3 +40,4 @@ build/
 ### ms ###
 .idea
 *.wz
+*.log
